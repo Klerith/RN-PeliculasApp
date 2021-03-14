@@ -67,7 +67,7 @@ export const MovieDetails = ({ movieFull, cast }: Props) => {
                     renderItem={ ({ item }) => <CastItem actor={ item } /> }
                     horizontal={ true }
                     showsHorizontalScrollIndicator={ false }
-                    style={{ marginTop: 10 }}
+                    style={{ marginTop: 10, height: 70 }}
                 />
                 
 

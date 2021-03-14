@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor: 'white',
         borderRadius: 10,
+        height: 50,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -52,11 +53,11 @@ const styles = StyleSheet.create({
         shadowRadius: 7,
 
         elevation: 9,
-        marginRight: 10,
-        paddingRight: 10,
+        marginLeft: 20,
+        paddingRight: 15,
     },
     actorInfo: {
         marginLeft: 10,
-        marginTop: 5,
+        marginTop: 4,
     }
 });

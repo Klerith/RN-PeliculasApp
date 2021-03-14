@@ -6,6 +6,7 @@ import { RootStackParams } from '../navigation/Navigation';
 
 import { useMovieDetails } from '../hooks/useMovieDetails';
 import { MovieDetails } from '../components/MovieDetails';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const screenHeight = Dimensions.get('screen').height;
 
@@ -44,6 +45,14 @@ export const DetailScreen = ( { route }: Props ) => {
                     ? <ActivityIndicator size={ 35 } color="grey" style={{ marginTop: 20 }} />
                     : <MovieDetails movieFull={ movieFull! } cast={ cast } />
             }
+
+            {/* Boton para cerrar */}
+            <Icon 
+                color="white"
+                name="arrow-back-outline"
+                size={ 60 }
+                style={ styles.backButton }
+            />
                 
             
         </ScrollView>
@@ -91,5 +100,11 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         fontWeight: 'bold'
+    },
+    backButton: {
+        position: 'absolute',
+        top: 50,
+        left: 10,
+        zIndex: 99
     }
 });
