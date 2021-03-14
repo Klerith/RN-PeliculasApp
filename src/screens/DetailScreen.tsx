@@ -1,7 +1,7 @@
 import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react';
 import { Image, Text, View, StyleSheet, Dimensions, ActivityIndicator } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { RootStackParams } from '../navigation/Navigation';
 
 import { useMovieDetails } from '../hooks/useMovieDetails';
@@ -14,7 +14,7 @@ const screenHeight = Dimensions.get('screen').height;
 
 interface Props extends StackScreenProps<RootStackParams, 'DetailScreen'>{};
 
-export const DetailScreen = ( { route }: Props ) => {
+export const DetailScreen = ( { route, navigation }: Props ) => {
 
     const movie = route.params;
     const uri = `https://image.tmdb.org/t/p/w500${ movie.poster_path }`;
@@ -47,12 +47,17 @@ export const DetailScreen = ( { route }: Props ) => {
             }
 
             {/* Boton para cerrar */}
-            <Icon 
-                color="white"
-                name="arrow-back-outline"
-                size={ 60 }
-                style={ styles.backButton }
-            />
+            <View style={ styles.backButton }>
+                <TouchableOpacity
+                    onPress={() => navigation.pop() }
+                >
+                    <Icon 
+                        color="white"
+                        name="arrow-back-outline"
+                        size={ 60 }
+                    />
+                </TouchableOpacity>
+            </View>
                 
             
         </ScrollView>
@@ -103,8 +108,9 @@ const styles = StyleSheet.create({
     },
     backButton: {
         position: 'absolute',
-        top: 50,
-        left: 10,
-        zIndex: 99
+        zIndex: 999,
+        elevation: 9,
+        top: 30,
+        left: 5
     }
 });
